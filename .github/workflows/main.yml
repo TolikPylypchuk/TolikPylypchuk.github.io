@@ -1,0 +1,21 @@
+name: GitHub Pages
+on: [push]
+jobs:
+  build:
+    runs-on: ubuntu-latest
+    steps:
+    - uses: actions/checkout@v2.3.4
+    - name: Setup .NET
+      uses: actions/setup-dotnet@v1
+      with:
+        dotnet-version: 5.0.100
+    - name: Publish with dotnet
+      run: dotnet publish --configuration Release --output build
+    - name: Deploy to GitHub Pages
+      uses: JamesIves/github-pages-deploy-action@3.7.1
+      with:
+        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
+        BASE_BRANCH: dev
+        BRANCH: master
+        FOLDER: build/wwwroot
+        SINGLE_COMMIT: true
