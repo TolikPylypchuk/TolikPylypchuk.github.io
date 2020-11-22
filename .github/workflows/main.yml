@@ -18,4 +18,5 @@ jobs:
         BASE_BRANCH: dev
         BRANCH: master
         FOLDER: build/wwwroot
+        COMMIT_MESSAGE: "Deploy to GitHub Pages"
         SINGLE_COMMIT: true
