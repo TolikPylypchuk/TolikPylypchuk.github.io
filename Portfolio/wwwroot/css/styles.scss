@@ -2,6 +2,15 @@ html, body {
     font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
 }
 
+$primary: #6c5ce7;
+$secondary: #636e72;
+$success: #00b894;
+$info: #74b9ff;
+$warning: #fdcb6e;
+$danger: #d63031;
+$light: #dfe6e9;
+$dark: #2d3436;
+
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;
@@ -20,3 +29,5 @@ html, body {
     right: 0.75rem;
     top: 0.5rem;
 }
+
+@import '../lib/twitter-bootstrap/scss/bootstrap.scss';
