@@ -19,8 +19,9 @@ bld/
 [Oo]bj/
 [Ll]og/
 
-# Libraries
+# WWW Root Folder
 **/wwwroot/lib/
+**/wwwroot/**/*.css
 
 # Visual Studio and Visual Studio Code cache/options directory
 .vs/
