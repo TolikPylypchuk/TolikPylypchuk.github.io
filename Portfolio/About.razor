@@ -1,13 +1,27 @@
 <section class="container">
     <div class="row">
-        <div class="col-md-6 order-md-first order-last">
-            <img src="img/me.jpg" class="py-md-4 py-sm-2 mx-auto d-block mw-100" width="300" alt="Me" />
-        </div>
         <div class="col-md-6 order-md-last order-first">
-            <h1 class="display-1 py-md-4 py-sm-2">Hi, I'm Tolik Pylypchuk</h1>
+            <h1 class="display-1 pt-md-4 pt-2 pb-2">Hi, I'm Tolik Pylypchuk</h1>
             <p>
-                and this is my portfolio website.
+                And this is my portfolio website.
             </p>
+        </div>
+        <div class="col-md-6 order-md-first order-last">
+            <img src="img/me.jpg" class="py-md-4 py-2 mx-auto d-block mw-100" width="250" alt="Me" />
+
+            <div class="row mx-auto justify-content-center">
+                @foreach (var link in this.AccountLinks)
+                {
+                    <a href="@link.Ref" title="@link.Name" target="_blank" class="col-2 text-center">
+                        <i class="fab fa-@link.Icon fa-2x" aria-hidden="true" aria-label="@link.Name"></i>
+                    </a>
+                }
+            </div>
         </div>
     </div>
 </section>
+
+@code {
+    [Parameter]
+    public IEnumerable<AccountLink> AccountLinks { get; set; } = Enumerable.Empty<AccountLink>();
+}
