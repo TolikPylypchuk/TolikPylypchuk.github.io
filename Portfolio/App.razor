@@ -1,10 +1,15 @@
-<aside class="sticky-top p-2 bg-primary text-white text-center">
-    This site is under construction, so hang tight for updates!
-</aside>
+<div class="d-flex flex-column min-vh-100">
+    <aside class="sticky-top p-2 bg-primary text-white text-center">
+        This site is under construction, so hang tight for updates!
+    </aside>
 
-<About AccountLinks="this.AccountLinks" />
+    <main class="container flex-fill">
+        <About AccountLinks="this.AccountLinks" />
+        <BasicInfo />
+    </main>
 
-<Footer />
+    <Footer />
+</div>
 
 @code {
     public List<AccountLink> AccountLinks { get; } = new()
