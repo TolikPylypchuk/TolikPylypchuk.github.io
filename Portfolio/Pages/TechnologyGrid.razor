@@ -1,0 +1,18 @@
+@foreach (var technologies in this.Technologies.Buffer(3))
+{
+    <div class="row justify-content-center">
+        @foreach (var technology in technologies)
+        {
+            <div class="col-md-3 text-center m-2 m-md-4">
+                <div class="card">
+                    <h5 class="m-4">@technology.Name</h5>
+                </div>
+            </div>
+        }
+    </div>
+}
+
+@code {
+    [Parameter]
+    public IEnumerable<Technology> Technologies { get; set; } = Enumerable.Empty<Technology>();
+}

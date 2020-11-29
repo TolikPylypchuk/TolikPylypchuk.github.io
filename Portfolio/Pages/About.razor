@@ -11,7 +11,7 @@
         <div class="row mx-auto justify-content-center">
             @foreach (var link in this.AccountLinks)
             {
-                <a href="@link.Ref" title="@link.Name" target="_blank" class="col-2 text-center">
+                <a href="@link.Url" title="@link.Name" target="_blank" class="col-2 text-center">
                     <i class="fab fa-@link.Icon fa-2x" aria-hidden="true" aria-label="@link.Name"></i>
                 </a>
             }
@@ -20,6 +20,10 @@
 </section>
 
 @code {
-    [Parameter]
-    public IEnumerable<AccountLink> AccountLinks { get; set; } = Enumerable.Empty<AccountLink>();
+    private List<AccountLink> AccountLinks { get; } = new()
+    {
+        new("GitHub", "github", "https://github.com/TolikPylypchuk"),
+        new("LinkedIn", "linkedin", "https://www.linkedin.com/in/anatoliy-pylypchuk"),
+        new("StackOverflow", "stack-overflow", "https://stackoverflow.com/users/5659368/tolik-pylypchuk?tab=profile")
+    };
 }

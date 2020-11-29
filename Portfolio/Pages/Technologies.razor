@@ -1,0 +1,27 @@
+<section>
+    <h3 class="text-center">Technologies I Work With</h3>
+
+    <TechnologyGrid Technologies="this.MainTechnologies" />
+
+    <h3 class="text-center">Technologies With Which I Have Minor Experience</h3>
+
+    <TechnologyGrid Technologies="this.AdditionalTechnologies" />
+</section>
+
+@code {
+    private List<Technology> MainTechnologies { get; } = new()
+    {
+        new("C#", ""),
+        new("Java", "")
+    };
+
+    private List<Technology> AdditionalTechnologies { get; } = new()
+    {
+        new("F#", ""),
+        new("C++", ""),
+        new("Angular", ""),
+        new("Python", ""),
+        new("Scala", ""),
+        new("Haskell", ""),
+    };
+}
