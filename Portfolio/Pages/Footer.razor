@@ -1,13 +1,36 @@
 <footer class="footer mt-auto p-2 p-md-4 bg-dark text-light">
-    <div class="row justify-content-between">
-        <div class="col-md-6">
+    <div class="row justify-content-between d-flex h-100">
+        <div class="col-md-6 align-self-center">
             Powered by <a href="https://blazor.net" title="Blazor">Blazor</a> and
             <a href="https://pages.github.com" title="GitHub Pages">Github Pages</a>.
-            Icons made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
-            from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>.
+            <a class="link-primary ml-2" data-toggle="modal" data-target="#iconCreditsModal" style="cursor: pointer">
+                Click here for icon credits
+            </a>
         </div>
-        <div class="col-md-6 text-md-right">
+        <div class="col-md-6 text-md-right align-self-center">
             &copy; 2020 Anatoliy Pylypchuk
         </div>
     </div>
 </footer>
+
+<div class="modal fade" id="iconCreditsModal" tabindex="-1" aria-labelledby="iconCreditsLabel" aria-hidden="true">
+    <div class="modal-dialog">
+        <div class="modal-content">
+            <div class="modal-header">
+                <h5 class="modal-title" id="iconCreditsLabel">Icon Credits</h5>
+                <button type="button" class="btn-close" data-dismiss="modal" aria-label="Close"></button>
+            </div>
+            <div class="modal-body">
+                <ul>
+                    <li>
+                        Favicon made by <a href="https://www.flaticon.com/authors/freepik" title="Freepik">Freepik</a>
+                        from <a href="https://www.flaticon.com/" title="Flaticon">www.flaticon.com</a>
+                    </li>
+                </ul>
+            </div>
+            <div class="modal-footer">
+                <button type="button" class="btn btn-outline-primary" data-dismiss="modal">Close</button>
+            </div>
+        </div>
+    </div>
+</div>
