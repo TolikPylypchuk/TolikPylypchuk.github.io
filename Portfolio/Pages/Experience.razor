@@ -1,0 +1,67 @@
+@using System.Threading 
+
+<section class="row justify-content-center mt-4">
+    <div class="col-md-3 d-inline-flex justify-content-md-center">
+        <h2 class="display-2 mx-2">@this.YearsOfTotalExperience</h2>
+        <p class="align-self-center">years of total <br /> experience</p>
+    </div>
+    <div class="col-md-3 d-inline-flex justify-content-md-center">
+        <h2 class="display-2 mx-2">@this.YearsOfCommercialExperience</h2>
+        <p class="align-self-center">years of commercial <br /> experience</p>
+    </div>
+</section>
+
+@code {
+    private DateTime TotalExperienceStart { get; } = new DateTime(2012, 10, 1);
+    private DateTime CommercialExperienceStart { get; } = new DateTime(2017, 8, 28);
+
+    private int YearsOfTotalExperience { get; set; }
+    private int YearsOfCommercialExperience { get; set; }
+
+    private Timer UpdatYearsTimer { get; set; } = null!;
+
+    protected override void OnAfterRender(bool firstRender)
+    {
+        base.OnAfterRender(firstRender);
+
+        if (!firstRender)
+        {
+            return;
+        }
+
+        int yearsOfTotalExperience = this.CalculateYearsFromDate(this.TotalExperienceStart);
+        int yearsOfCommercialExperience = this.CalculateYearsFromDate(this.CommercialExperienceStart);
+        int experienceDifference = yearsOfTotalExperience - yearsOfCommercialExperience;
+
+        this.UpdatYearsTimer = TimerUtils.StartLimitedEasingTimer(
+            () =>
+            {
+                this.YearsOfTotalExperience++;
+
+                if (this.YearsOfTotalExperience > experienceDifference)
+                {
+                    this.YearsOfCommercialExperience++;
+                }
+
+                this.StateHasChanged();
+            },
+            () => this.YearsOfTotalExperience < yearsOfTotalExperience,
+            dueTime: TimeSpan.FromMilliseconds(100),
+            period: TimeSpan.FromMilliseconds(100),
+            periodIncrement: TimeSpan.FromMilliseconds(15));
+    }
+
+    private int CalculateYearsFromDate(DateTime date)
+    {
+        var today = DateTime.Today;
+
+        int result = today.Year - date.Year;
+
+        if (date.Date > today.AddYears(-result))
+        {
+            result--;
+        }
+
+        return result;
+    }
+}

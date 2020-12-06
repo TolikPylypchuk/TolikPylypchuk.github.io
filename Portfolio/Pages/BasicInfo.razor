@@ -4,11 +4,7 @@
             <div class="card-body">
                 <h5 class="card-title">Who I am</h5>
                 <p class="card-text">
-                    A developer from Lviv, Ukraine with
-                    @this.YearsOfExperience&nbsp;@(this.YearsOfExperience == 1 ? "year" : "years") of total experience
-                    and
-                    @this.YearsOfCommercialExperience&nbsp;@(this.YearsOfCommercialExperience == 1 ? "year" : "years")
-                    of commercial experience.
+                    A guy from Lviv, Ukraine who loves programming.
                 </p>
             </div>
         </div>
@@ -19,7 +15,7 @@
             <div class="card-body">
                 <h5 class="card-title">What I do</h5>
                 <p class="card-text">
-                    Mostly back-end web development, and a little front-end and desktop as well.
+                    Mostly back-end web development, and a little front-end and desktop.
                 </p>
             </div>
         </div>
@@ -36,33 +32,3 @@
         </div>
     </div>
 </section>
-
-@code {
-    private DateTime ExperienceStart { get; } = new DateTime(2012, 10, 1);
-    private DateTime CommercialExperienceStart { get; } = new DateTime(2017, 8, 28);
-
-    private int YearsOfExperience { get; set; }
-    private int YearsOfCommercialExperience { get; set; }
-
-    protected override void OnInitialized()
-    {
-        base.OnInitialized();
-
-        this.YearsOfExperience = this.CalculateYearsFromDate(this.ExperienceStart);
-        this.YearsOfCommercialExperience = this.CalculateYearsFromDate(this.CommercialExperienceStart);
-    }
-
-    private int CalculateYearsFromDate(DateTime date)
-    {
-        var today = DateTime.Today;
-
-        int result = today.Year - date.Year;
-
-        if (date.Date > today.AddYears(-result))
-        {
-            result--;
-        }
-
-        return result;
-    }
-}
