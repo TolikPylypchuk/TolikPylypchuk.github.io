@@ -20,9 +20,9 @@
 
     private Timer UpdatYearsTimer { get; set; } = null!;
 
-    protected override void OnAfterRender(bool firstRender)
+    protected override async Task OnAfterRenderAsync(bool firstRender)
     {
-        base.OnAfterRender(firstRender);
+        await base.OnAfterRenderAsync(firstRender);
 
         if (!firstRender)
         {
@@ -33,22 +33,19 @@
         int yearsOfCommercialExperience = this.CalculateYearsFromDate(this.CommercialExperienceStart);
         int experienceDifference = yearsOfTotalExperience - yearsOfCommercialExperience;
 
-        this.UpdatYearsTimer = TimerUtils.StartLimitedEasingTimer(
-            () =>
+        foreach (var delay in Enumerable.Range(0, yearsOfTotalExperience).Select(i => 100 + i * 15))
+        {
+            await Task.Delay(TimeSpan.FromMilliseconds(delay));
+
+            this.YearsOfTotalExperience++;
+
+            if (this.YearsOfTotalExperience > experienceDifference)
             {
-                this.YearsOfTotalExperience++;
+                this.YearsOfCommercialExperience++;
+            }
 
-                if (this.YearsOfTotalExperience > experienceDifference)
-                {
-                    this.YearsOfCommercialExperience++;
-                }
-
-                this.StateHasChanged();
-            },
-            () => this.YearsOfTotalExperience < yearsOfTotalExperience,
-            dueTime: TimeSpan.FromMilliseconds(100),
-            period: TimeSpan.FromMilliseconds(100),
-            periodIncrement: TimeSpan.FromMilliseconds(15));
+            this.StateHasChanged();
+        }
     }
 
     private int CalculateYearsFromDate(DateTime date)
