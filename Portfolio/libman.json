@@ -1,14 +1,15 @@
 {
   "version": "1.0",
-  "defaultProvider": "cdnjs",
+  "defaultProvider": "jsdelivr",
   "libraries": [
     {
-      "library": "twitter-bootstrap@5.0.0-alpha3",
-      "destination": "wwwroot/lib/twitter-bootstrap/"
+      "library": "bootstrap@5.0.0-beta1",
+      "destination": "wwwroot/lib/bootstrap/"
     },
     {
       "library": "font-awesome@5.15.1",
-      "destination": "wwwroot/lib/font-awesome/"
+      "destination": "wwwroot/lib/font-awesome/",
+      "provider": "cdnjs"
     },
     {
       "library": "lato-font@3.0.0",
