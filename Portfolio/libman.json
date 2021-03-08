@@ -3,11 +3,11 @@
   "defaultProvider": "jsdelivr",
   "libraries": [
     {
-      "library": "bootstrap@5.0.0-beta1",
+      "library": "bootstrap@5.0.0-beta2",
       "destination": "wwwroot/lib/bootstrap/"
     },
     {
-      "library": "font-awesome@5.15.1",
+      "library": "font-awesome@5.15.2",
       "destination": "wwwroot/lib/font-awesome/",
       "provider": "cdnjs"
     },
