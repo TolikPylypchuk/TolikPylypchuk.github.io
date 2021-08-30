@@ -1,12 +1,10 @@
-@using System.Threading 
-
 <section class="row justify-content-center mt-4">
     <div class="col-md-3 d-inline-flex justify-content-md-center">
-        <h2 class="display-2 mx-2">@this.YearsOfTotalExperience</h2>
+        <h2 class="animate-count display-2 mx-2" style=@this.YearsOfTotalExperienceStyle></h2>
         <p class="align-self-center">years of total <br /> experience</p>
     </div>
     <div class="col-md-3 d-inline-flex justify-content-md-center">
-        <h2 class="display-2 mx-2">@this.YearsOfCommercialExperience</h2>
+        <h2 class="animate-count display-2 mx-2" style=@this.YearsOfCommercialExperienceStyle></h2>
         <p class="align-self-center">years of commercial <br /> experience</p>
     </div>
 </section>
@@ -18,31 +16,27 @@
     private int YearsOfTotalExperience { get; set; }
     private int YearsOfCommercialExperience { get; set; }
 
-    private Timer UpdatYearsTimer { get; set; } = null!;
+    private string YearsOfTotalExperienceStyle { get; set; } = String.Empty;
+    private string YearsOfCommercialExperienceStyle { get; set; } = String.Empty;
+
+    protected override void OnParametersSet()
+    {
+        base.OnParametersSet();
+
+        this.YearsOfTotalExperience = this.CalculateYearsFromDate(this.TotalExperienceStart);
+        this.YearsOfCommercialExperience = this.CalculateYearsFromDate(this.CommercialExperienceStart);
+    }
 
     protected override async Task OnAfterRenderAsync(bool firstRender)
     {
         await base.OnAfterRenderAsync(firstRender);
 
-        if (!firstRender)
+        if (firstRender)
         {
-            return;
-        }
+            this.YearsOfTotalExperienceStyle = $"--num: {this.YearsOfTotalExperience}";
+            this.YearsOfCommercialExperienceStyle = $"--num: {this.YearsOfCommercialExperience}";
 
-        int yearsOfTotalExperience = this.CalculateYearsFromDate(this.TotalExperienceStart);
-        int yearsOfCommercialExperience = this.CalculateYearsFromDate(this.CommercialExperienceStart);
-        int experienceDifference = yearsOfTotalExperience - yearsOfCommercialExperience;
-
-        foreach (var delay in Enumerable.Range(0, yearsOfTotalExperience).Select(i => 100 + i * 15))
-        {
-            await Task.Delay(TimeSpan.FromMilliseconds(delay));
-
-            this.YearsOfTotalExperience++;
-
-            if (this.YearsOfTotalExperience > experienceDifference)
-            {
-                this.YearsOfCommercialExperience++;
-            }
+            await Task.Delay(1);
 
             this.StateHasChanged();
         }
