@@ -27,8 +27,8 @@ jobs:
       shell: bash
       run: |
         dotnet publish --configuration Release --output build
-        mv build/publish-gitignore build/.gitignore
-        mv build/publish-gitattributes build/.gitattributes
+        mv build/published-gitignore build/.gitignore
+        mv build/published-gitattributes build/.gitattributes
 
     - name: Deploy
       uses: peaceiris/actions-gh-pages@v3.8.0
