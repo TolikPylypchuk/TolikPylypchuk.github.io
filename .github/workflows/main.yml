@@ -1,23 +1,37 @@
 name: GitHub Pages
-on: [push]
+
+on:
+  push:
+    branches:
+      - dev
+
 jobs:
   build:
     runs-on: ubuntu-latest
+
     steps:
-    - uses: actions/checkout@v2.3.4
+    - uses: actions/checkout@v2
+
     - name: Setup .NET
       uses: actions/setup-dotnet@v1
       with:
-        dotnet-version: 5.0.402
-    - name: Publish with dotnet
-      run: dotnet publish --configuration Release --output build
-    - name: Deploy to GitHub Pages
-      uses: JamesIves/github-pages-deploy-action@3.7.1
+        dotnet-version: 6.0.x
+        include-prerelease: true
+
+    - name: Publish
+      shell: bash
+      run: |
+        dotnet publish --configuration Release --output build
+        mv build/publish-gitignore build/.gitignore
+        mv build/publish-gitattributes build/.gitattributes
+
+    - name: Deploy
+      uses: peaceiris/actions-gh-pages@v3.8.0
       with:
-        ACCESS_TOKEN: ${{ secrets.ACCESS_TOKEN }}
-        BASE_BRANCH: dev
-        BRANCH: master
-        FOLDER: build/wwwroot
-        COMMIT_MESSAGE: "Deploy to GitHub Pages"
-        SINGLE_COMMIT: true
-        CLEAN_EXCLUDE: '[ ".gitignore", ".gitattributes", "CNAME" ]'
+        github_token: ${{ secrets.GITHUB_TOKEN }}
+        publish_dir: build/wwwroot
+        user_name: "Tolik Pylypchuk"
+        user_email: "pylypchuk.tolik@gmail.com"
+        commit_message: "Deploy to GitHub Pages"
+        force_orphan: true
+        cname: "tolik.io"
