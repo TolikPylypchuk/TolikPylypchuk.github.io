@@ -9,22 +9,6 @@ $danger: #d63031;
 $light: #dfe6e9;
 $dark: #2d3436;
 
-@property --num {
-    syntax: '<integer>';
-    initial-value: 0;
-    inherits: false;
-}
-
-.animate-count {
-    transition: --num 3s;
-    counter-set: num var(--num);
-    animation-timing-function: ease-in;
-
-    &::after {
-        content: counter(num);
-    }
-}
-
 #blazor-error-ui {
     background: lightyellow;
     bottom: 0;

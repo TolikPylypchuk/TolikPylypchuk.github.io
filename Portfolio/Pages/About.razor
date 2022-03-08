@@ -1,29 +1,6 @@
-<section class="row">
-    <div class="col-md-6 order-md-last order-first">
-        <h1 class="display-1 pt-md-4 pt-2 pb-2">Hi, I'm Tolik Pylypchuk</h1>
-        <h6 class="display-6">
-            A software developer.
-        </h6>
-    </div>
-    <div class="col-md-6 order-md-first order-last">
-        <img src="img/me.jpg" class="py-md-4 py-2 mx-auto d-block mw-100" width="250" alt="Me" />
-
-        <div class="row mx-auto justify-content-center">
-            @foreach (var link in this.AccountLinks)
-            {
-                <a href="@link.Url" title="@link.Name" target="_blank" class="col-2 text-center">
-                    <i class="fab fa-@link.Icon fa-2x" aria-hidden="true" aria-label="@link.Name"></i>
-                </a>
-            }
-        </div>
-    </div>
+<section class="align-self-center">
+    <h1 class="display-1 pt-md-4 pt-2 pb-2">Hi, I'm Tolik Pylypchuk</h1>
+    <h6 class="display-6">
+        A software developer.
+    </h6>
 </section>
-
-@code {
-    private List<AccountLink> AccountLinks { get; } = new()
-    {
-        new("GitHub", "github", "https://github.com/TolikPylypchuk"),
-        new("LinkedIn", "linkedin", "https://www.linkedin.com/in/anatoliy-pylypchuk"),
-        new("StackOverflow", "stack-overflow", "https://stackoverflow.com/users/5659368/tolik-pylypchuk?tab=profile")
-    };
-}
