@@ -11,10 +11,10 @@
   </PropertyGroup>
 
   <ItemGroup>
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.7" />
-    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.7" PrivateAssets="all" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly" Version="6.0.8" />
+    <PackageReference Include="Microsoft.AspNetCore.Components.WebAssembly.DevServer" Version="6.0.8" PrivateAssets="all" />
     <PackageReference Include="Microsoft.Web.LibraryManager.Build" Version="2.1.175" />
-    <PackageReference Include="PublishSPAforGitHubPages.Build" Version="1.3.7" />
+    <PackageReference Include="PublishSPAforGitHubPages.Build" Version="2.0.1" />
   </ItemGroup>
 
   <ItemGroup>
@@ -26,7 +26,7 @@
   </Target>
 
   <Target Name="PreBuild" AfterTargets="ToolRestore">
-    <Exec Command="dotnet tool run webcompiler -o wwwroot/css -p disable -z disable -r Styles" StandardOutputImportance="high" />
+    <Exec Command="dotnet tool run webcompiler -- -o wwwroot/css -p disable -z disable -r Styles" StandardOutputImportance="high" />
   </Target>
 
 </Project>
