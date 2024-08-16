@@ -1,0 +1,47 @@
+.headerWrapper {
+  height: 100%;
+  background-color: #0f0609;
+  color: white;
+}
+
+.header {
+  height: 100svh;
+  display: grid;
+  grid-template-rows: 50% 50%;
+  background-image: url("/background.svg");
+  background-repeat: no-repeat;
+  background-size: cover;
+}
+
+.nameWrapper {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: flex-end;
+  gap: 16px;
+  margin: 0 80px;
+}
+
+.name {
+  font-size: 4rem;
+  font-weight: 200;
+}
+
+.subtext {
+  font-size: 2rem;
+  font-weight: 200;
+}
+
+.photoWrapper {
+  display: flex;
+  justify-content: flex-start;
+  align-items: center;
+  margin: 0 80px;
+}
+
+.photo {
+  height: 75%;
+  width: auto;
+  object-fit: contain;
+  box-shadow: 16px 20px 0px 0px rgba(42, 157, 143, 0.75);
+}
