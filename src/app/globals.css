@@ -5,3 +5,11 @@
   --color-black: hsl(340, 43%, 4%);
   --color-text-white: white;
 }
+
+@media screen and (prefers-reduced-motion: reduce) {
+  * {
+    animation-duration: 0.001ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.001ms !important;
+  }
+}
