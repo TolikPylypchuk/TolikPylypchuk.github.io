@@ -1,0 +1,9 @@
+<svg width="512" height="512" viewBox="0 0 166.406 69.336" xmlns="http://www.w3.org/2000/svg">
+  <g id="brackets" stroke-linecap="round" fill-rule="evenodd" font-size="9pt" stroke="#2A9D8F" stroke-width="0.25mm" fill="#2A9D8F" style="stroke:#2A9D8F;stroke-width:0.25mm;fill:#2A9D8F">
+    <path d="M 46.777 48.145 L 46.777 58.887 L 0 39.648 L 0 29.785 L 46.777 10.547 L 46.777 21.289 L 10.645 34.277 L 10.645 35.156 L 46.777 48.145 Z" id="0" vector-effect="non-scaling-stroke"/>
+    <path d="M 166.406 39.648 L 119.629 58.887 L 119.629 48.145 L 153.809 35.156 L 153.809 34.277 L 119.629 21.289 L 119.629 10.547 L 166.406 29.785 L 166.406 39.648 Z" id="2" vector-effect="non-scaling-stroke"/>
+  </g>
+  <g id="letter" stroke-linecap="round" fill-rule="evenodd" font-size="9pt" stroke="#52489C" stroke-width="0.25mm" fill="#52489C" style="stroke:#52489C;stroke-width:0.25mm;fill:#52489C">
+    <path d="M 88.281 69.336 L 78.125 69.336 L 78.125 9.277 L 57.813 9.277 L 57.813 0 L 108.594 0 L 108.594 9.277 L 88.281 9.277 L 88.281 69.336 Z" id="1" vector-effect="non-scaling-stroke"/>
+  </g>
+</svg>

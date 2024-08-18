@@ -1,6 +1,6 @@
 import styles from "./page.module.css";
 import Image from "next/image";
-import author from "../../public/me.jpg";
+import author from "../../public/images/me.jpg";
 
 export default function Home() {
   return (
