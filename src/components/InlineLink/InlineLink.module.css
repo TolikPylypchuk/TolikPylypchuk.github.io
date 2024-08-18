@@ -1,0 +1,18 @@
+.inlineLink {
+  color: inherit;
+  text-decoration: none;
+  --background-color: hsl(173, 58%, 39%);
+  background-image: linear-gradient(
+    0deg,
+    var(--background-color) 0%,
+    var(--background-color) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 90%;
+  transition: background-size 0.25s ease-in;
+}
+
+.inlineLink:hover {
+  background-size: 100% 90%;
+}
