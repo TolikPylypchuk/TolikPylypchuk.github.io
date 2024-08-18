@@ -37,7 +37,13 @@ function ProfilePicture() {
     <picture>
       <source type="image/webp" srcSet="/images/me.webp" />
       <source type="image/jpg" srcSet="/images/me.jpg" />
-      <img className={styles.photo} alt="Me" src="/images/me.jpg" />
+      <img
+        className={styles.photo}
+        alt="Me"
+        src="/images/me.jpg"
+        width={300}
+        height={300}
+      />
     </picture>
   );
 }

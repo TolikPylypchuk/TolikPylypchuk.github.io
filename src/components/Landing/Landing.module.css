@@ -58,8 +58,9 @@
 
 .photo {
   height: 75%;
-  max-height: 350px;
+  max-height: 300px;
   width: auto;
+  max-width: 300px;
   object-fit: contain;
   box-shadow: 16px 20px 0px 0px var(--color-secondary-shadow);
 }
