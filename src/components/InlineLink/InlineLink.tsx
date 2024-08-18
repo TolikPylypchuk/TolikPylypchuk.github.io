@@ -1,8 +1,7 @@
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
 import styles from "./InlineLink.module.css";
 
-type InlineLinkProps = {
-  href: string;
+type InlineLinkProps = LinkProps & {
   children: React.ReactNode;
   newTab?: boolean;
 };
