@@ -3,6 +3,7 @@ import { Inter } from "next/font/google";
 
 import Favicons from "@/components/Favicons";
 
+import "./reset.css";
 import "./globals.css";
 
 const inter = Inter({ subsets: ["latin"] });

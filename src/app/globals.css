@@ -1,50 +1,7 @@
-*,
-*::before,
-*::after {
-  box-sizing: border-box;
-}
-
-* {
-  margin: 0;
-}
-
-html,
-body {
-  height: 100%;
-}
-
-body {
-  line-height: 1.5;
-  -webkit-font-smoothing: antialiased;
-}
-
-img,
-picture,
-video,
-canvas,
-svg {
-  display: block;
-  max-width: 100%;
-}
-
-input,
-button,
-textarea,
-select {
-  font: inherit;
-}
-
-p,
-h1,
-h2,
-h3,
-h4,
-h5,
-h6 {
-  overflow-wrap: break-word;
-}
-
-#root,
-#__next {
-  isolation: isolate;
+:root {
+  --color-primary: hsl(247, 37%, 45%);
+  --color-secondary: hsl(173, 58%, 39%);
+  --color-secondary-shadow: hsla(173, 58%, 39%, 0.75);
+  --color-black: hsl(340, 43%, 4%);
+  --color-text-white: white;
 }
