@@ -1,12 +1,12 @@
 import type { Metadata } from "next";
-import { Inter } from "next/font/google";
+import { Raleway } from "next/font/google";
 
 import Favicons from "@/components/Favicons";
 
 import "./reset.css";
 import "./globals.css";
 
-const inter = Inter({ subsets: ["latin"] });
+const raleway = Raleway({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
   title: "Tolik's Website",
@@ -24,7 +24,7 @@ export default function RootLayout({
         <Favicons />
       </head>
 
-      <body className={inter.className}>{children}</body>
+      <body className={raleway.className}>{children}</body>
     </html>
   );
 }

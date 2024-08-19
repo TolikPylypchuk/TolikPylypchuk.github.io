@@ -130,7 +130,7 @@
   }
 }
 
-@media screen and (max-width: 32rem) {
+@media screen and (max-width: 33rem) {
   .header {
     grid-template-rows: auto auto auto auto;
     grid-template-columns: 100%;
