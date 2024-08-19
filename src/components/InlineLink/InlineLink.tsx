@@ -6,7 +6,11 @@ type InlineLinkProps = LinkProps & {
   newTab?: boolean;
 };
 
-function InlineLink({ href, children, newTab = true }: InlineLinkProps) {
+export default function InlineLink({
+  href,
+  children,
+  newTab = true,
+}: InlineLinkProps) {
   return (
     <Link
       href={href}
@@ -17,5 +21,3 @@ function InlineLink({ href, children, newTab = true }: InlineLinkProps) {
     </Link>
   );
 }
-
-export default InlineLink;

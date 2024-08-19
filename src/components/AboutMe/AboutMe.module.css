@@ -1,0 +1,11 @@
+.wrapper {
+  height: 100lvh;
+  display: grid;
+  place-content: end;
+}
+
+.more {
+  font-size: 3rem;
+  font-weight: 200;
+  margin: 40px;
+}

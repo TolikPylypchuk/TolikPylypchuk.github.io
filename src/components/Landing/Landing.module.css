@@ -1,13 +1,23 @@
 .header {
+  --scroll-button-margin: 12px;
+  --scroll-button-size: 48px;
+  --scroll-button-full-height: calc(
+    var(--scroll-button-margin) * 2 + var(--scroll-button-size)
+  );
+
   min-height: 100svh;
   background-color: var(--color-black);
   color: var(--color-text-white);
   display: grid;
-  grid-template-rows: 50% 50%;
+  grid-template-rows:
+    calc(50% - var(--scroll-button-full-height) / 2)
+    calc(50% - var(--scroll-button-full-height) / 2)
+    var(--scroll-button-full-height);
   grid-template-columns: auto 1fr;
   grid-template-areas:
     "photo name"
-    "links description";
+    "links description"
+    "scroll scroll";
   column-gap: 32px;
   padding: 0 80px;
   background-image: url("/images/background.svg");
@@ -98,14 +108,39 @@
   max-width: 50ch;
 }
 
+.scrollWrapper {
+  grid-area: scroll;
+  display: grid;
+  place-content: center;
+}
+
+.scrollButton {
+  margin: var(--scroll-button-margin);
+  width: var(--scroll-button-size);
+  height: var(--scroll-button-size);
+  border: none;
+  color: var(--color-text-white);
+  background-color: hsla(247, 37%, 45%, 0);
+  border-radius: calc(var(--scroll-button-size) / 2);
+  cursor: pointer;
+  display: grid;
+  place-content: center;
+  transition: background-color 0.25s ease-in;
+}
+
+.scrollButton:hover {
+  background-color: hsla(247, 37%, 45%, 0.5);
+}
+
 @media screen and (max-width: 56rem) {
   .header {
-    grid-template-rows: auto auto auto;
+    grid-template-rows: auto auto auto var(--scroll-button-full-height);
     grid-template-columns: 50% 50%;
     grid-template-areas:
       "name name"
       "photo links"
-      "description description";
+      "description description"
+      "scroll scroll";
     padding: 0 20px;
     column-gap: revert;
   }
@@ -132,13 +167,14 @@
 
 @media screen and (max-width: 33rem) {
   .header {
-    grid-template-rows: auto auto auto auto;
+    grid-template-rows: auto auto auto auto var(--scroll-button-full-height);
     grid-template-columns: 100%;
     grid-template-areas:
       "name"
       "photo"
       "links"
-      "description";
+      "description"
+      "scroll";
     padding: 12px 20px;
     column-gap: revert;
     row-gap: 32px;
