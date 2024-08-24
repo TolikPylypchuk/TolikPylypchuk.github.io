@@ -56,7 +56,6 @@
   background-repeat: no-repeat;
   background-size: 100% 0.2em;
   background-position: 0 90%;
-  transition: background-size 0.25s ease-in;
 }
 
 .photoWrapper {
@@ -120,16 +119,16 @@
   height: var(--scroll-button-size);
   border: none;
   color: var(--color-text-white);
-  background-color: hsla(247, 37%, 45%, 0);
+  background-color: var(--color-button-highlight-inactive-primary);
   border-radius: calc(var(--scroll-button-size) / 2);
   cursor: pointer;
   display: grid;
   place-content: center;
-  transition: background-color 0.25s ease-in;
+  transition: var(--transition-button-highligt);
 }
 
 .scrollButton:hover {
-  background-color: hsla(247, 37%, 45%, 0.5);
+  background-color: var(--color-button-highlight-active-primary);
 }
 
 @media screen and (max-width: 56rem) {

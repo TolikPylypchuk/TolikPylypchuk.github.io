@@ -1,11 +1,18 @@
-.wrapper {
-  height: 100lvh;
-  display: grid;
-  place-content: end;
+.anchor {
+  position: relative;
+  top: calc(var(--nav-menu-height) * -1);
+  visibility: hidden;
+}
+
+.header {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 200;
+  margin: 24px;
 }
 
 .more {
-  font-size: 3rem;
+  font-size: 2rem;
   font-weight: 200;
-  margin: 40px;
+  margin: 24px;
 }

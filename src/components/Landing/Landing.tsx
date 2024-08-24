@@ -1,6 +1,6 @@
 import { ArrowDown } from "react-feather";
 
-import InlineLink from "@/components/InlineLink";
+import TextLink from "@/components/TextLink";
 
 import styles from "./Landing.module.css";
 
@@ -36,24 +36,27 @@ export default function Landing({ scrollRef }: LandingProps) {
       <div className={styles.linksWrapper}>
         <ol className={styles.links}>
           <li>
-            <InlineLink href="#" newTab={false}>
+            <TextLink href="/#about-me" newTab={false}>
               About me
-            </InlineLink>
+            </TextLink>
           </li>
           <li>
-            <InlineLink href="#" newTab={false}>
-              My projects
-            </InlineLink>
+            <TextLink href="/#" newTab={false}>
+              Projects
+            </TextLink>
           </li>
           <li>
-            <InlineLink href="https://github.com/TolikPylypchuk">
-              GitHub
-            </InlineLink>
+            <TextLink href="/#" newTab={false}>
+              Blog
+            </TextLink>
           </li>
           <li>
-            <InlineLink href="https://www.linkedin.com/in/anatoliy-pylypchuk">
+            <TextLink href="https://github.com/TolikPylypchuk">GitHub</TextLink>
+          </li>
+          <li>
+            <TextLink href="https://www.linkedin.com/in/anatoliy-pylypchuk">
               LinkedIn
-            </InlineLink>
+            </TextLink>
           </li>
         </ol>
       </div>
@@ -61,15 +64,15 @@ export default function Landing({ scrollRef }: LandingProps) {
       <div className={styles.descriptionWrapper}>
         <p className={styles.description}>
           I&apos;m a software developer from{" "}
-          <InlineLink href="https://en.wikipedia.org/wiki/Lviv">
+          <TextLink href="https://en.wikipedia.org/wiki/Lviv">
             Lviv, Ukraine
-          </InlineLink>
+          </TextLink>
           . I work as a Java back&#8209;end developer at{" "}
-          <InlineLink href="https://kindgeek.com">Kindgeek</InlineLink>, but
-          also have several{" "}
-          <InlineLink href="https://github.com/TolikPylypchuk">
+          <TextLink href="https://kindgeek.com">Kindgeek</TextLink>, but also
+          have several{" "}
+          <TextLink href="https://github.com/TolikPylypchuk">
             open-source projects
-          </InlineLink>
+          </TextLink>
           , mostly using .NET. I like creating stuff, hacking around, and
           learning new technologies regularly.
         </p>

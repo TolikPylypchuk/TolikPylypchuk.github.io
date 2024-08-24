@@ -1,16 +1,17 @@
 import Link, { LinkProps } from "next/link";
-import styles from "./InlineLink.module.css";
 
-type InlineLinkProps = LinkProps & {
+import styles from "./TextLink.module.css";
+
+type TextLinkProps = LinkProps & {
   children: React.ReactNode;
   newTab?: boolean;
 };
 
-export default function InlineLink({
+export default function TextLink({
   href,
   children,
   newTab = true,
-}: InlineLinkProps) {
+}: TextLinkProps) {
   return (
     <Link
       href={href}

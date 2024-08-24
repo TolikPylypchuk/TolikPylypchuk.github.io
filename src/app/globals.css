@@ -1,9 +1,16 @@
 :root {
-  --color-primary: hsl(247, 37%, 45%);
-  --color-secondary: hsl(173, 58%, 39%);
-  --color-secondary-shadow: hsla(173, 58%, 39%, 0.75);
-  --color-black: hsl(340, 43%, 4%);
+  --color-primary: hsl(247deg, 37%, 45%);
+  --color-secondary: hsl(173deg, 58%, 39%);
+  --color-secondary-shadow: hsla(173deg, 58%, 39%, 0.75);
+  --color-black: hsl(340deg, 43%, 4%);
+  --color-text-black: black;
   --color-text-white: white;
+  --color-button-highlight-inactive-primary: hsla(247deg, 37%, 45%, 0);
+  --color-button-highlight-active-primary: hsla(247deg, 37%, 45%, 0.5);
+  --color-button-highlight-inactive-secondary: hsla(173deg, 58%, 39%, 0);
+  --color-button-highlight-active-secondary: hsla(173deg, 58%, 39%, 0.5);
+  --transition-button-highligt: background-color 0.25s ease-in;
+  --nav-menu-height: 64px;
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
