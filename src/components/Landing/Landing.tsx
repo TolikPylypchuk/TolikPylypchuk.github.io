@@ -1,6 +1,7 @@
 import { ArrowDown } from "react-feather";
 
 import TextLink from "@/components/TextLink";
+import { pageAnchors, href } from "@/utils/pageAnchors";
 
 import styles from "./Landing.module.css";
 
@@ -25,28 +26,28 @@ export default function Landing({ scrollRef }: LandingProps) {
         </picture>
       </div>
 
-      <div className={styles.nameWrapper}>
+      <hgroup className={styles.nameWrapper}>
         <h1 className={styles.name}>
           Hi, I&apos;m{" "}
           <span className={styles.underlined}>Tolik Pylypchuk</span>
         </h1>
         <p className={styles.subtext}>Welcome to my portfolio website</p>
-      </div>
+      </hgroup>
 
       <div className={styles.linksWrapper}>
         <ol className={styles.links}>
           <li>
-            <TextLink href="/#about-me" newTab={false}>
+            <TextLink href={href(pageAnchors.aboutMe)} newTab={false}>
               About me
             </TextLink>
           </li>
           <li>
-            <TextLink href="/#" newTab={false}>
+            <TextLink href={href(pageAnchors.projects)} newTab={false}>
               Projects
             </TextLink>
           </li>
           <li>
-            <TextLink href="/#" newTab={false}>
+            <TextLink href={href(pageAnchors.blog)} newTab={false}>
               Blog
             </TextLink>
           </li>

@@ -11,8 +11,33 @@
   margin: 24px;
 }
 
-.more {
-  font-size: 2rem;
-  font-weight: 200;
-  margin: 24px;
+.contentWrapper {
+  height: 100%;
+  display: grid;
+  grid-template-columns: 50% 50%;
+  grid-template-areas: "about-me technologies";
+  padding: 0 24px;
+  gap: 16px;
+}
+
+.aboutMe {
+  display: flex;
+  flex-direction: column;
+  gap: 24px;
+  font-size: 1.5rem;
+  max-width: 60ch;
+}
+
+.aboutMe strong {
+  font-weight: 500;
+}
+
+@media screen and (max-width: 50rem) {
+  .contentWrapper {
+    grid-template-columns: 100%;
+    grid-template-rows: auto auto;
+    grid-template-areas:
+      "about-me"
+      "technologies";
+  }
 }
