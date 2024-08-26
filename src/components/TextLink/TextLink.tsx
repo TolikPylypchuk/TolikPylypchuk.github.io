@@ -1,11 +1,28 @@
 import Link, { LinkProps } from "next/link";
-
-import styles from "./TextLink.module.css";
+import styled from "styled-components";
 
 type TextLinkProps = LinkProps & {
   children: React.ReactNode;
   newTab?: boolean;
 };
+
+const StyledLink = styled(Link)`
+  color: inherit;
+  text-decoration: none;
+  background-image: linear-gradient(
+    0deg,
+    var(--color-secondary) 0%,
+    var(--color-secondary) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 90%;
+  transition: background-size 0.25s ease-in;
+
+  &:hover {
+    background-size: 100% 90%;
+  }
+`;
 
 export default function TextLink({
   href,
@@ -13,12 +30,8 @@ export default function TextLink({
   newTab = true,
 }: TextLinkProps) {
   return (
-    <Link
-      href={href}
-      className={styles.inlineLink}
-      target={newTab ? "_blank" : undefined}
-    >
+    <StyledLink href={href} target={newTab ? "_blank" : undefined}>
       {children}
-    </Link>
+    </StyledLink>
   );
 }
