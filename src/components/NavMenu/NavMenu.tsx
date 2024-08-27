@@ -1,5 +1,5 @@
 import Link from "next/link";
-import { GitHub, Linkedin } from "react-feather";
+import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import styled from "styled-components";
 
 import TextLink from "@/components/TextLink";
@@ -90,7 +90,7 @@ export default function NavMenu() {
             target="_blank"
             aria-label="GitHub"
           >
-            <GitHub size={25} />
+            <GitHubLogoIcon width={24} height={24} />
           </IconLink>
         </li>
         <li>
@@ -99,7 +99,7 @@ export default function NavMenu() {
             target="_blank"
             aria-label="LinkedIn"
           >
-            <Linkedin size={25} />
+            <LinkedInLogoIcon width={24} height={24} />
           </IconLink>
         </li>
       </NavLinkIcons>

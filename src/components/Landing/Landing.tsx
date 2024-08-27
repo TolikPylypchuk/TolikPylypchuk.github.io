@@ -1,4 +1,4 @@
-import { ArrowDown } from "react-feather";
+import { ArrowDownIcon } from "@radix-ui/react-icons";
 import styled from "styled-components";
 
 import TextLink from "@/components/TextLink";
@@ -293,7 +293,7 @@ export default function Landing({ scrollRef }: LandingProps) {
             scrollRef.current?.scrollIntoView({ behavior: "smooth" });
           }}
         >
-          <ArrowDown size={24} />
+          <ArrowDownIcon width={24} height={24} />
         </ScrollButton>
       </ScrollWrapper>
     </Header>
