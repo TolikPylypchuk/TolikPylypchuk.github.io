@@ -4,6 +4,7 @@ import styled from "styled-components";
 import TextLink from "@/components/TextLink";
 import { pageAnchors, href } from "@/utils/pageAnchors";
 import React from "react";
+import Technologies from "../Technologies";
 
 type SimpleTooltipProps = {
   children: React.ReactNode;
@@ -24,6 +25,7 @@ const ContentWrapper = styled.div`
     grid-template-areas:
       "about-me"
       "technologies";
+    gap: 32px;
   }
 `;
 
@@ -115,7 +117,9 @@ export default function AboutMe() {
               </TextLink>
               . I&apos;ve started programming{" "}
               <SimpleTooltip tooltipText="Since October 2012">
-                <Years tabIndex={0}>{devYears}</Years>
+                <Years tabIndex={0} suppressHydrationWarning>
+                  {devYears}
+                </Years>
               </SimpleTooltip>{" "}
               years ago, and since then it&apos;s been one of my favorite
               past-times. It&apos;s my job and my hobby, and I have multiple{" "}
@@ -129,12 +133,15 @@ export default function AboutMe() {
               <TextLink href="https://kindgeek.com">Kindgeek</TextLink> for the
               last{" "}
               <SimpleTooltip tooltipText="Since 28 August 2017">
-                <Years tabIndex={0}>{jobYears}</Years>
+                <Years tabIndex={0} suppressHydrationWarning>
+                  {jobYears}
+                </Years>
               </SimpleTooltip>{" "}
               years.
             </p>
           </Tooltip.Provider>
         </Description>
+        <Technologies />
       </ContentWrapper>
     </div>
   );
