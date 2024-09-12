@@ -1,7 +1,7 @@
-import Link from "next/link";
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
 import styled from "styled-components";
 
+import IconLink from "@/components/IconLink";
 import TextLink from "@/components/TextLink";
 
 const Nav = styled.nav`
@@ -41,23 +41,6 @@ const NavLinkIcons = styled(NavLinksBase)`
   gap: 12px;
 `;
 
-const IconLink = styled(Link)`
-  --size: 48px;
-  display: grid;
-  place-content: center;
-  width: var(--size);
-  height: var(--size);
-  padding: calc(var(--size) / 4);
-  border-radius: calc(var(--size) / 2);
-  color: var(--color-text-black);
-  background-color: var(--color-button-highlight-inactive-secondary);
-  transition: var(--transition-button-highligt);
-
-  &:hover {
-    background-color: var(--color-button-highlight-active-secondary);
-  }
-`;
-
 export default function NavMenu() {
   return (
     <Nav>
@@ -88,6 +71,7 @@ export default function NavMenu() {
           <IconLink
             href="https://github.com/TolikPylypchuk"
             target="_blank"
+            size="48px"
             aria-label="GitHub"
           >
             <GitHubLogoIcon width={24} height={24} />
@@ -97,6 +81,7 @@ export default function NavMenu() {
           <IconLink
             href="https://www.linkedin.com/in/anatoliy-pylypchuk"
             target="_blank"
+            size="48px"
             aria-label="LinkedIn"
           >
             <LinkedInLogoIcon width={24} height={24} />

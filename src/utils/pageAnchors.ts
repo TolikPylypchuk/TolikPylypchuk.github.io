@@ -3,8 +3,11 @@ export const pageAnchors = {
   aboutMe: "about-me",
   projects: "projects",
   blog: "blog",
-};
+} as const;
 
-export function href(anchor: string) {
+export type PageAnchorKey = keyof typeof pageAnchors;
+export type PageAnchorValue = (typeof pageAnchors)[PageAnchorKey];
+
+export function href(anchor: PageAnchorValue) {
   return `/#${anchor}`;
 }

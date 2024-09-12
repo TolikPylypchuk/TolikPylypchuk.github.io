@@ -5,6 +5,7 @@ import TextLink from "@/components/TextLink";
 import { pageAnchors, href } from "@/utils/pageAnchors";
 import React from "react";
 import Technologies from "../Technologies";
+import Section from "../Section";
 
 type SimpleTooltipProps = {
   children: React.ReactNode;
@@ -12,7 +13,6 @@ type SimpleTooltipProps = {
 };
 
 const ContentWrapper = styled.div`
-  height: 100%;
   display: grid;
   grid-template-columns: 50% 50%;
   grid-template-areas: "about-me technologies";
@@ -27,19 +27,6 @@ const ContentWrapper = styled.div`
       "technologies";
     gap: 32px;
   }
-`;
-
-const Anchor = styled.a`
-  position: relative;
-  top: calc(var(--nav-menu-height) * -1);
-  visibility: hidden;
-`;
-
-const Header = styled.h2`
-  text-align: center;
-  font-size: 3rem;
-  font-weight: 200;
-  margin: 24px;
 `;
 
 const Description = styled.div`
@@ -104,9 +91,7 @@ export default function AboutMe() {
   const jobYears = yearsSince(new Date("2017-08-28"));
 
   return (
-    <div>
-      <Anchor id={pageAnchors.aboutMe}></Anchor>
-      <Header>About Me</Header>
+    <Section id={pageAnchors.aboutMe} header="About Me">
       <ContentWrapper>
         <Description>
           <Tooltip.Provider>
@@ -143,6 +128,6 @@ export default function AboutMe() {
         </Description>
         <Technologies />
       </ContentWrapper>
-    </div>
+    </Section>
   );
 }
