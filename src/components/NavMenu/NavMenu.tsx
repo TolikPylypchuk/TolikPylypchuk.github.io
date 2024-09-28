@@ -3,6 +3,7 @@ import styled from "styled-components";
 
 import IconLink from "@/components/IconLink";
 import TextLink from "@/components/TextLink";
+import { href, pageAnchors } from "@/utils/pageAnchors";
 
 const Nav = styled.nav`
   position: sticky;
@@ -46,22 +47,22 @@ export default function NavMenu() {
     <Nav>
       <NavLinks>
         <li>
-          <TextLink href="/#" newTab={false}>
+          <TextLink href={href(pageAnchors.home)} newTab={false}>
             Home
           </TextLink>
         </li>
         <li>
-          <TextLink href="/#about-me" newTab={false}>
+          <TextLink href={href(pageAnchors.aboutMe)} newTab={false}>
             About me
           </TextLink>
         </li>
         <li>
-          <TextLink href="/#" newTab={false}>
+          <TextLink href={href(pageAnchors.projects)} newTab={false}>
             Projects
           </TextLink>
         </li>
         <li>
-          <TextLink href="/#" newTab={false}>
+          <TextLink href={href(pageAnchors.blog)} newTab={false}>
             Blog
           </TextLink>
         </li>
