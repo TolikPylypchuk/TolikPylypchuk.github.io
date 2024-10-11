@@ -11,8 +11,8 @@ const StyledLink = styled(Link)`
   text-decoration: none;
   background-image: linear-gradient(
     0deg,
-    var(--color-secondary) 0%,
-    var(--color-secondary) 100%
+    var(--color-link-highlight) 0%,
+    var(--color-link-highlight) 100%
   );
   background-repeat: no-repeat;
   background-size: 100% 0.2em;

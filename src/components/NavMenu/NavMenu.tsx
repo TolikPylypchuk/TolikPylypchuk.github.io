@@ -73,7 +73,7 @@ export default function NavMenu() {
             href="https://github.com/TolikPylypchuk"
             target="_blank"
             size="48px"
-            aria-label="GitHub"
+            label="GitHub"
           >
             <GitHubLogoIcon width={24} height={24} />
           </IconLink>
@@ -83,7 +83,7 @@ export default function NavMenu() {
             href="https://www.linkedin.com/in/anatoliy-pylypchuk"
             target="_blank"
             size="48px"
-            aria-label="LinkedIn"
+            label="LinkedIn"
           >
             <LinkedInLogoIcon width={24} height={24} />
           </IconLink>

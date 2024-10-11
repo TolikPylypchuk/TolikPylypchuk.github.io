@@ -153,7 +153,7 @@ export default function Projects() {
               <IconLink
                 href={project.url}
                 target="_blank"
-                aria-label={project.name}
+                label={`Go to ${project.name}`}
                 size="48px"
               >
                 <ExternalLinkIcon width={32} height={32} />

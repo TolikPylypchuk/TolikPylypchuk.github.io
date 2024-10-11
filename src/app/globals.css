@@ -7,6 +7,7 @@
   --color-text-black: black;
   --color-text-white: white;
   --color-text-selection: hsl(247deg, 37%, 45%, 0.8);
+  --color-link-highlight: hsla(173deg, 58%, 39%, 0.75);
   --color-button-highlight-inactive-primary: hsla(247deg, 37%, 45%, 0);
   --color-button-highlight-active-primary: hsla(247deg, 37%, 45%, 0.5);
   --color-button-highlight-inactive-secondary: hsla(173deg, 58%, 39%, 0);

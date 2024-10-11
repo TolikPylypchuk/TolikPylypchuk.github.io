@@ -1,11 +1,14 @@
-import Link from "next/link";
+import Link, { LinkProps } from "next/link";
 import styled from "styled-components";
+import { AccessibleIcon } from "@radix-ui/react-accessible-icon";
 
 type IconLinkProps = {
   size: string;
+  label: string;
+  children: React.ReactNode;
 };
 
-const IconLink = styled<typeof Link, IconLinkProps>(Link)`
+const StyledLink = styled<typeof Link, LinkProps & { size: string }>(Link)`
   --size: ${(props) => props.size};
   display: grid;
   place-content: center;
@@ -21,5 +24,19 @@ const IconLink = styled<typeof Link, IconLinkProps>(Link)`
     background-color: var(--color-button-highlight-active-secondary);
   }
 `;
+
+function IconLink({
+  label,
+  children,
+  ...rest
+}: IconLinkProps &
+  LinkProps &
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>) {
+  return (
+    <StyledLink {...rest}>
+      <AccessibleIcon label={label}>{children}</AccessibleIcon>
+    </StyledLink>
+  );
+}
 
 export default IconLink;
