@@ -1,16 +1,13 @@
+import React from "react";
+
 import * as Tooltip from "@radix-ui/react-tooltip";
 import styled from "styled-components";
 
+import Section from "@/components/Section";
+import SimpleTooltip from "@/components/SimpleTooltip";
+import Technologies from "@/components/Technologies";
 import TextLink from "@/components/TextLink";
 import { pageAnchors, href } from "@/utils/pageAnchors";
-import React from "react";
-import Technologies from "../Technologies";
-import Section from "../Section";
-
-type SimpleTooltipProps = {
-  children: React.ReactNode;
-  tooltipText: string;
-};
 
 const ContentWrapper = styled.div`
   display: grid;
@@ -41,49 +38,10 @@ const Years = styled.strong`
   font-weight: 500;
 `;
 
-const SimpleTooltipContent = styled(Tooltip.Content)`
-  border-radius: 4px;
-  padding: 8px 16px;
-  line-height: 1;
-  background-color: white;
-  box-shadow: hsl(206 22% 7% / 35%) 0px 10px 38px -10px,
-    hsl(206 22% 7% / 20%) 0px 10px 20px -15px;
-  animation-duration: 400ms;
-  animation-timing-function: cubic-bezier(0.16, 1, 0.3, 1);
-  will-change: transform, opacity;
-
-  &[data-state="delayed-open"] {
-    animation-name: slideDownAndFade;
-  }
-
-  @keyframes slideDownAndFade {
-    from {
-      opacity: 0;
-      transform: translateY(-2px);
-    }
-
-    to {
-      opacity: 1;
-      transform: translateY(0);
-    }
-  }
-`;
-
 function yearsSince(date: Date) {
   var diff = Date.now() - Number(date);
   var date = new Date(diff);
   return Math.abs(date.getUTCFullYear() - 1970);
-}
-
-function SimpleTooltip({ children, tooltipText }: SimpleTooltipProps) {
-  return (
-    <Tooltip.Root>
-      <Tooltip.Trigger asChild>{children}</Tooltip.Trigger>
-      <Tooltip.Portal>
-        <SimpleTooltipContent align="start">{tooltipText}</SimpleTooltipContent>
-      </Tooltip.Portal>
-    </Tooltip.Root>
-  );
 }
 
 export default function AboutMe() {
@@ -101,7 +59,7 @@ export default function AboutMe() {
                 Lviv, Ukraine
               </TextLink>
               . I&apos;ve started programming{" "}
-              <SimpleTooltip tooltipText="Since October 2012">
+              <SimpleTooltip tooltipText="Since October 2012" align="start">
                 <Years tabIndex={0} suppressHydrationWarning>
                   {devYears}
                 </Years>
@@ -117,7 +75,7 @@ export default function AboutMe() {
               I&apos;ve been working as a Java back&#8209;end developer at{" "}
               <TextLink href="https://kindgeek.com">Kindgeek</TextLink> for the
               last{" "}
-              <SimpleTooltip tooltipText="Since 28 August 2017">
+              <SimpleTooltip tooltipText="Since 28 August 2017" align="start">
                 <Years tabIndex={0} suppressHydrationWarning>
                   {jobYears}
                 </Years>

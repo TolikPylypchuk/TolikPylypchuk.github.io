@@ -1,10 +1,15 @@
 import Link, { LinkProps } from "next/link";
 import styled from "styled-components";
+
 import { AccessibleIcon } from "@radix-ui/react-accessible-icon";
+import * as Tooltip from "@radix-ui/react-tooltip";
+
+import SimpleTooltip from "@/components/SimpleTooltip";
 
 type IconLinkProps = {
   size: string;
   label: string;
+  addTooltip?: boolean;
   children: React.ReactNode;
 };
 
@@ -28,11 +33,20 @@ const StyledLink = styled<typeof Link, LinkProps & { size: string }>(Link)`
 function IconLink({
   label,
   children,
+  addTooltip = true,
   ...rest
 }: IconLinkProps &
   LinkProps &
   Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>) {
-  return (
+  return addTooltip === true ? (
+    <Tooltip.Provider>
+      <SimpleTooltip tooltipText={label} align="center">
+        <StyledLink {...rest}>
+          <AccessibleIcon label={label}>{children}</AccessibleIcon>
+        </StyledLink>
+      </SimpleTooltip>
+    </Tooltip.Provider>
+  ) : (
     <StyledLink {...rest}>
       <AccessibleIcon label={label}>{children}</AccessibleIcon>
     </StyledLink>

@@ -1,9 +1,23 @@
 import { GitHubLogoIcon, LinkedInLogoIcon } from "@radix-ui/react-icons";
+import { IconProps } from "@radix-ui/react-icons/dist/types";
 import styled from "styled-components";
 
 import IconLink from "@/components/IconLink";
 import TextLink from "@/components/TextLink";
-import { href, pageAnchors } from "@/utils/pageAnchors";
+import { href, pageAnchors, PageAnchorValue } from "@/utils/pageAnchors";
+
+type TextLinkData = {
+  text: React.ReactNode;
+  href: PageAnchorValue;
+};
+
+type IconLinkData = {
+  icon: React.ForwardRefExoticComponent<
+    IconProps & React.RefAttributes<SVGSVGElement>
+  >;
+  href: string;
+  label: string;
+};
 
 const Nav = styled.nav`
   position: sticky;
@@ -42,52 +56,63 @@ const NavLinkIcons = styled(NavLinksBase)`
   gap: 12px;
 `;
 
+const textLinks: TextLinkData[] = [
+  {
+    text: "Home",
+    href: pageAnchors.home,
+  },
+  {
+    text: "About me",
+    href: pageAnchors.aboutMe,
+  },
+  {
+    text: "Projects",
+    href: pageAnchors.projects,
+  },
+  {
+    text: "Blog",
+    href: pageAnchors.blog,
+  },
+];
+
+const iconLinks: IconLinkData[] = [
+  {
+    icon: GitHubLogoIcon,
+    label: "GitHub",
+    href: "https://github.com/TolikPylypchuk",
+  },
+  {
+    icon: LinkedInLogoIcon,
+    label: "LinkedIn",
+    href: "https://www.linkedin.com/in/anatoliy-pylypchuk",
+  },
+];
+
 export default function NavMenu() {
   return (
     <Nav>
       <NavLinks>
-        <li>
-          <TextLink href={href(pageAnchors.home)} newTab={false}>
-            Home
-          </TextLink>
-        </li>
-        <li>
-          <TextLink href={href(pageAnchors.aboutMe)} newTab={false}>
-            About me
-          </TextLink>
-        </li>
-        <li>
-          <TextLink href={href(pageAnchors.projects)} newTab={false}>
-            Projects
-          </TextLink>
-        </li>
-        <li>
-          <TextLink href={href(pageAnchors.blog)} newTab={false}>
-            Blog
-          </TextLink>
-        </li>
+        {textLinks.map((link) => (
+          <li key={link.href}>
+            <TextLink href={href(link.href)} newTab={false}>
+              {link.text}
+            </TextLink>
+          </li>
+        ))}
       </NavLinks>
       <NavLinkIcons>
-        <li>
-          <IconLink
-            href="https://github.com/TolikPylypchuk"
-            target="_blank"
-            size="48px"
-            label="GitHub"
-          >
-            <GitHubLogoIcon width={24} height={24} />
-          </IconLink>
-        </li>
-        <li>
-          <IconLink
-            href="https://www.linkedin.com/in/anatoliy-pylypchuk"
-            target="_blank"
-            size="48px"
-            label="LinkedIn"
-          >
-            <LinkedInLogoIcon width={24} height={24} />
-          </IconLink>
-        </li>
+        {iconLinks.map((link) => (
+          <li key={link.href}>
+            <IconLink
+              href={link.href}
+              target="_blank"
+              size="48px"
+              label={link.label}
+            >
+              <link.icon width={24} height={24} />
+            </IconLink>
+          </li>
+        ))}
       </NavLinkIcons>
     </Nav>
   );
