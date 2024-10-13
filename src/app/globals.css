@@ -4,6 +4,7 @@
   --color-secondary-shadow: hsla(173deg, 58%, 39%, 0.75);
   --color-tertiary: hsl(333deg, 21%, 92%);
   --color-black: hsl(340deg, 43%, 4%);
+  --color-separator: hsl(0, 0%, 50%);
   --color-text-black: black;
   --color-text-white: white;
   --color-text-selection: hsl(247deg, 37%, 45%, 0.8);

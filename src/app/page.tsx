@@ -4,6 +4,8 @@ import { useRef } from "react";
 import styled from "styled-components";
 
 import AboutMe from "@/components/AboutMe";
+import BlogPreview from "@/components/BlogPreview";
+import Footer from "@/components/Footer";
 import Landing from "@/components/Landing";
 import NavMenu from "@/components/NavMenu";
 import Projects from "@/components/Projects";
@@ -30,7 +32,9 @@ export default function Home() {
         <MainContent>
           <AboutMe />
           <Projects />
+          <BlogPreview />
         </MainContent>
+        <Footer />
       </MainContentWrapper>
     </>
   );
