@@ -2,20 +2,34 @@
   --color-primary: hsl(247deg, 37%, 45%);
   --color-secondary: hsl(173deg, 58%, 39%);
   --color-secondary-shadow: hsla(173deg, 58%, 39%, 0.75);
-  --color-tertiary: hsl(333deg, 21%, 92%);
+  --color-tertiary-light: hsl(333deg, 21%, 92%);
+  --color-tertiary-dark: hsl(333deg, 21%, 44%);
+  --color-white: white;
   --color-black: hsl(340deg, 43%, 4%);
-  --color-separator: hsl(0, 0%, 50%);
-  --color-text-black: black;
-  --color-text-white: white;
-  --color-background-white: white;
+
+  --color-text-light: black;
+  --color-text-dark: white;
   --color-text-selection: hsl(247deg, 37%, 45%, 0.8);
+
+  --color-background-light: var(--color-white);
+  --color-background-dark: var(--color-black);
+
   --color-link-highlight: hsla(173deg, 58%, 39%, 0.75);
+
   --color-button-highlight-inactive-primary: hsla(247deg, 37%, 45%, 0);
   --color-button-highlight-active-primary: hsla(247deg, 37%, 45%, 0.5);
   --color-button-highlight-inactive-secondary: hsla(173deg, 58%, 39%, 0);
   --color-button-highlight-active-secondary: hsla(173deg, 58%, 39%, 0.5);
+
   --transition-button-highligt: background-color 0.25s ease-in;
+
   --nav-menu-height: 64px;
+
+  /* Theme-dependent variables */
+
+  --color-tertiary: var(--color-tertiary-dark);
+  --color-background: var(--color-background-dark);
+  --color-text: var(--color-text-dark);
 }
 
 @media screen and (prefers-reduced-motion: reduce) {
@@ -27,6 +41,6 @@
 }
 
 *::selection {
-  color: var(--color-text-white);
+  color: var(--color-text-dark);
   background-color: var(--color-text-selection);
 }

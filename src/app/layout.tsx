@@ -3,6 +3,8 @@ import { Raleway } from "next/font/google";
 
 import StyledComponentsRegistry from "./lib/registry";
 import Favicons from "@/components/Favicons";
+import ThemeInitializer from "@/components/ThemeInitializer";
+import ThemeProvider from "@/components/ThemeProvider";
 
 import "./reset.css";
 import "./globals.css";
@@ -20,13 +22,21 @@ export default function RootLayout({
   children: React.ReactNode;
 }>) {
   return (
-    <html lang="en">
+    <html lang="en" suppressHydrationWarning>
+      {/*
+        suppressHydrationWarning is needed here because of an initialization script
+        which injects the current color theme from local storage
+      */}
+
       <head>
         <Favicons />
       </head>
 
       <body className={raleway.className}>
-        <StyledComponentsRegistry>{children}</StyledComponentsRegistry>
+        <ThemeInitializer />
+        <StyledComponentsRegistry>
+          <ThemeProvider>{children}</ThemeProvider>
+        </StyledComponentsRegistry>
       </body>
     </html>
   );

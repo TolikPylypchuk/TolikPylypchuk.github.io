@@ -7,7 +7,7 @@ const Wrapper = styled.div`
 const Separator = styled.hr`
   border: none;
   height: 1px;
-  background-color: var(--color-separator);
+  background-color: var(--color-tertiary);
 `;
 
 const CopyrightText = styled.p`

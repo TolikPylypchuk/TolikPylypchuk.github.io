@@ -19,8 +19,8 @@ const Header = styled.header`
   );
 
   min-height: 100svh;
-  background-color: var(--color-black);
-  color: var(--color-text-white);
+  background-color: var(--color-background-dark);
+  color: var(--color-text-dark);
   display: grid;
   grid-template-rows:
     calc(50% - var(--scroll-button-full-height) / 2)
@@ -211,7 +211,7 @@ const ScrollButton = styled.button`
   width: var(--scroll-button-size);
   height: var(--scroll-button-size);
   border: none;
-  color: var(--color-text-white);
+  color: var(--color-text-dark);
   background-color: var(--color-button-highlight-inactive-primary);
   border-radius: calc(var(--scroll-button-size) / 2);
   cursor: pointer;

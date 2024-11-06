@@ -13,6 +13,8 @@ import Projects from "@/components/Projects";
 const MainContentWrapper = styled.div`
   position: relative;
   min-height: 100%;
+  color: var(--color-text);
+  background-color: var(--color-background);
 `;
 
 const MainContent = styled.main`

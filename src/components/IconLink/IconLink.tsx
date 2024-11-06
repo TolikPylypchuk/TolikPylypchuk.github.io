@@ -21,7 +21,7 @@ const StyledLink = styled<typeof Link, LinkProps & { size: string }>(Link)`
   height: var(--size);
   padding: calc(var(--size) / 4);
   border-radius: calc(var(--size) / 2);
-  color: var(--color-text-black);
+  color: var(--color-text);
   background-color: var(--color-button-highlight-inactive-secondary);
   transition: var(--transition-button-highligt);
 

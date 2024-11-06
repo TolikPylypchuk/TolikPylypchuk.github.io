@@ -25,7 +25,7 @@ const TechnologyList = styled(Tabs.List)`
 const TechnologyChip = styled(Tabs.Trigger)`
   border: none;
   background-color: var(--color-tertiary);
-  color: var(--color-text-black);
+  color: var(--color-text);
   cursor: pointer;
   border-radius: 1000px;
   padding: 4px 12px;
@@ -40,7 +40,7 @@ const TechnologyChip = styled(Tabs.Trigger)`
 
   &[data-state="active"] {
     background-color: var(--color-primary);
-    color: var(--color-text-white);
+    color: var(--color-text-dark);
   }
 `;
 

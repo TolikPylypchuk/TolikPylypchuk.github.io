@@ -11,6 +11,7 @@ import styled from "styled-components";
 
 import IconLink from "@/components/IconLink";
 import TextLink from "@/components/TextLink";
+import ThemeToggle from "@/components/ThemeToggle";
 import { href, pageAnchors, PageAnchorValue } from "@/utils/pageAnchors";
 
 type TextLinkData = {
@@ -36,7 +37,7 @@ const Nav = styled.nav`
   justify-content: space-between;
   align-items: center;
   padding: 8px 20px;
-  background-color: white;
+  background-color: var(--color-background);
   font-size: 2rem;
   font-weight: 200;
 `;
@@ -52,9 +53,8 @@ const NavLinksBase = styled.ol`
 
 const NavLinks = styled(NavLinksBase)`
   gap: 24px;
-  text-wrap: nowrap;
 
-  @media screen and (max-width: 40rem) {
+  @media screen and (max-width: 45rem) {
     display: none;
   }
 `;
@@ -71,7 +71,7 @@ const NavMoreButton = styled.button`
 
   display: none;
 
-  @media screen and (max-width: 40rem) {
+  @media screen and (max-width: 45rem) {
     display: grid;
   }
 
@@ -81,7 +81,7 @@ const NavMoreButton = styled.button`
   padding: calc(var(--size) / 4);
   border-radius: calc(var(--size) / 2);
 
-  color: var(--color-text-black);
+  color: var(--color-text);
   background-color: var(--color-button-highlight-inactive-secondary);
   transition: var(--transition-button-highligt);
 
@@ -92,7 +92,7 @@ const NavMoreButton = styled.button`
 
 const NavPopoverContent = styled(Popover.Content)`
   width: 100vw;
-  background-color: var(--color-background-white);
+  background-color: var(--color-background);
   font-size: 1.5rem;
   font-weight: 200;
   display: flex;
@@ -178,6 +178,7 @@ export default function NavMenu() {
       </Popover.Root>
 
       <NavLinkIcons>
+        <ThemeToggle size={48} />
         {iconLinks.map((link) => (
           <li key={link.href}>
             <IconLink
