@@ -92,6 +92,7 @@ const NavMoreButton = styled.button`
 
 const NavPopoverContent = styled(Popover.Content)`
   width: 100vw;
+  color: var(--color-text);
   background-color: var(--color-background);
   font-size: 1.5rem;
   font-weight: 200;
@@ -178,7 +179,6 @@ export default function NavMenu() {
       </Popover.Root>
 
       <NavLinkIcons>
-        <ThemeToggle size={48} />
         {iconLinks.map((link) => (
           <li key={link.href}>
             <IconLink
@@ -191,6 +191,7 @@ export default function NavMenu() {
             </IconLink>
           </li>
         ))}
+        <ThemeToggle size={48} />
       </NavLinkIcons>
     </Nav>
   );
