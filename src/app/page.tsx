@@ -12,7 +12,7 @@ import Projects from "@/components/Projects";
 
 const MainContentWrapper = styled.div`
   position: relative;
-  height: 100%;
+  min-height: 100%;
 `;
 
 const MainContent = styled.main`

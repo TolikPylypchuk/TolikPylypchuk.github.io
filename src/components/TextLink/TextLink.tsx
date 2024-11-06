@@ -4,6 +4,7 @@ import styled from "styled-components";
 type TextLinkProps = LinkProps & {
   children: React.ReactNode;
   newTab?: boolean;
+  onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
 const StyledLink = styled(Link)`
@@ -28,9 +29,14 @@ export default function TextLink({
   href,
   children,
   newTab = true,
+  onClick,
 }: TextLinkProps) {
   return (
-    <StyledLink href={href} target={newTab ? "_blank" : undefined}>
+    <StyledLink
+      href={href}
+      target={newTab ? "_blank" : undefined}
+      onClick={onClick}
+    >
       {children}
     </StyledLink>
   );

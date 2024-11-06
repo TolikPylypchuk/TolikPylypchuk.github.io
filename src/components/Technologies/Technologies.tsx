@@ -193,7 +193,7 @@ const technologies: Technology[] = [
         really say that I know them even a little now. I&apos;ve studied{" "}
         <Emphasis>Python</Emphasis> in the university a little, and have written
         some simple data-manipulation scripts with it. I&apos;ve also studied{" "}
-        <Emphasis>Androind</Emphasis> development in the university, but it was
+        <Emphasis>Android</Emphasis> development in the university, but it was
         even before the Kotiln days. I&apos;ve also studied some DevOps things,
         like <Emphasis>Docker</Emphasis> and <Emphasis>Kubernetes</Emphasis>,
         but I didn&apos;t go much further than understanding the basics.
