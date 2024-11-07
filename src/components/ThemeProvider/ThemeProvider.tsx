@@ -4,7 +4,6 @@ import { createContext, useEffect, useState } from "react";
 
 import {
   ColorTheme,
-  getPersistedColorTheme,
   resolveSystemColorTheme,
   persistColorTheme,
   themedCssVariables,

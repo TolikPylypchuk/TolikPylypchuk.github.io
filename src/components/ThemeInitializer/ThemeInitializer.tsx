@@ -1,10 +1,10 @@
-import { themedCssVariables } from "@/utils/themes";
+import { colorThemeKey, themedCssVariables } from "@/utils/themes";
 
 export default function ThemeInitializer() {
   const initializerCode = `
   (function () {
     function getPersistedColorTheme() {
-      return localStorage.getItem("color-theme");
+      return localStorage.getItem("${colorThemeKey}");
     }
 
     function resolveSystemColorTheme() {

@@ -27,9 +27,17 @@
 
   /* Theme-dependent variables */
 
-  --color-tertiary: var(--color-tertiary-dark);
-  --color-background: var(--color-background-dark);
-  --color-text: var(--color-text-dark);
+  --color-tertiary: var(--color-tertiary-light);
+  --color-background: var(--color-background-light);
+  --color-text: var(--color-text-light);
+}
+
+@media screen and (prefers-color-scheme: dark) {
+  :root {
+    --color-tertiary: var(--color-tertiary-dark);
+    --color-background: var(--color-background-dark);
+    --color-text: var(--color-text-dark);
+  }
 }
 
 @media screen and (prefers-reduced-motion: reduce) {

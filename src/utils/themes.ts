@@ -7,15 +7,7 @@ export const themedCssVariables = [
   "--color-text",
 ];
 
-const colorThemeKey = "color-theme";
-
-export function getPersistedColorTheme(): ColorTheme | undefined {
-  return typeof window === "object"
-    ? (window.localStorage.getItem(colorThemeKey) as
-        | ResolvedColorTheme
-        | undefined)
-    : undefined;
-}
+export const colorThemeKey = "color-theme";
 
 export function persistColorTheme(theme: ColorTheme) {
   typeof window === "object" &&
