@@ -5,7 +5,7 @@ import TextLink from "@/components/TextLink";
 import { pageAnchors, href } from "@/utils/pageAnchors";
 
 type LandingProps = {
-  scrollRef: React.RefObject<HTMLElement | undefined>;
+  scrollRef: React.RefObject<HTMLElement | undefined | null>;
 };
 
 const MiddleWidth = "56rem";
