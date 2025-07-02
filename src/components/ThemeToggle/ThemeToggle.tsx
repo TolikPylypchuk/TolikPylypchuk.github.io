@@ -1,37 +1,15 @@
 import { useContext } from "react";
 import { Half2Icon, MoonIcon, SunIcon } from "@radix-ui/react-icons";
 import { TooltipProvider } from "@radix-ui/react-tooltip";
-import styled from "styled-components";
 
 import SimpleTooltip from "@/components/SimpleTooltip";
 import { ThemeContext } from "@/components/ThemeProvider";
 
+import styles from "./ThemeToggle.module.css";
+
 export type ThemeToggleProps = {
   size: number;
 };
-
-type IconButtonProps = {
-  size: number;
-};
-
-const IconButton = styled.button<IconButtonProps>`
-  --size: ${(props) => `${props.size}px`};
-  display: grid;
-  place-content: center;
-  width: var(--size);
-  height: var(--size);
-  padding: calc(var(--size) / 4);
-  border: none;
-  border-radius: calc(var(--size) / 2);
-  color: var(--color-text);
-  background-color: var(--color-button-highlight-inactive-secondary);
-  cursor: pointer;
-  transition: var(--transition-button-highligt);
-
-  &:hover {
-    background-color: var(--color-button-highlight-active-secondary);
-  }
-`;
 
 export default function ThemeToggle({ size }: ThemeToggleProps) {
   const { colorTheme, setColorTheme } = useContext(ThemeContext);
@@ -64,14 +42,20 @@ export default function ThemeToggle({ size }: ThemeToggleProps) {
     }
   }
 
+  const buttonStyle = { "--size": `${size}px` } as React.CSSProperties;
+
   return (
     <>
       {colorTheme && (
         <TooltipProvider>
           <SimpleTooltip tooltipText={tooltipText}>
-            <IconButton size={size} onClick={toggleTheme}>
+            <button
+              onClick={toggleTheme}
+              className={styles.iconButton}
+              style={buttonStyle}
+            >
               <Icon width={size / 2} height={size / 2} />
-            </IconButton>
+            </button>
           </SimpleTooltip>
         </TooltipProvider>
       )}

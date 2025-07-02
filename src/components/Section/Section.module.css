@@ -1,0 +1,12 @@
+.anchor {
+  position: relative;
+  top: calc(var(--nav-menu-height) * -1);
+  visibility: hidden;
+}
+
+.header {
+  text-align: center;
+  font-size: 3rem;
+  font-weight: 200;
+  margin: 24px;
+}

@@ -1,7 +1,6 @@
 import React from "react";
 
 import * as Tooltip from "@radix-ui/react-tooltip";
-import styled from "styled-components";
 
 import Section from "@/components/Section";
 import SimpleTooltip from "@/components/SimpleTooltip";
@@ -9,34 +8,7 @@ import Technologies from "@/components/Technologies";
 import TextLink from "@/components/TextLink";
 import { pageAnchors, href } from "@/utils/pageAnchors";
 
-const ContentWrapper = styled.div`
-  display: grid;
-  grid-template-columns: 50% 50%;
-  grid-template-areas: "about-me technologies";
-  padding: 0 24px;
-  gap: 16px;
-
-  @media screen and (max-width: 50rem) {
-    grid-template-columns: 100%;
-    grid-template-rows: auto auto;
-    grid-template-areas:
-      "about-me"
-      "technologies";
-    gap: 32px;
-  }
-`;
-
-const Description = styled.div`
-  display: flex;
-  flex-direction: column;
-  gap: 24px;
-  font-size: 1.5rem;
-  max-width: 60ch;
-`;
-
-const Years = styled.strong`
-  font-weight: 500;
-`;
+import styles from "./AboutMe.module.css";
 
 function yearsSince(date: Date) {
   var diff = Date.now() - Number(date);
@@ -50,8 +22,8 @@ export default function AboutMe() {
 
   return (
     <Section id={pageAnchors.aboutMe} header="About Me">
-      <ContentWrapper>
-        <Description>
+      <div className={styles.contentWrapper}>
+        <div className={styles.description}>
           <Tooltip.Provider>
             <p>
               I&apos;m a software developer from{" "}
@@ -60,9 +32,13 @@ export default function AboutMe() {
               </TextLink>
               . I&apos;ve started programming{" "}
               <SimpleTooltip tooltipText="Since October 2012" align="start">
-                <Years tabIndex={0} suppressHydrationWarning>
+                <strong
+                  className={styles.years}
+                  tabIndex={0}
+                  suppressHydrationWarning
+                >
                   {devYears}
-                </Years>
+                </strong>
               </SimpleTooltip>{" "}
               years ago, and since then it&apos;s been one of my favorite
               past-times. It&apos;s my job and my hobby, and I have multiple{" "}
@@ -76,16 +52,20 @@ export default function AboutMe() {
               <TextLink href="https://kindgeek.com">Kindgeek</TextLink> for the
               last{" "}
               <SimpleTooltip tooltipText="Since 28 August 2017" align="start">
-                <Years tabIndex={0} suppressHydrationWarning>
+                <strong
+                  className={styles.years}
+                  tabIndex={0}
+                  suppressHydrationWarning
+                >
                   {jobYears}
-                </Years>
+                </strong>
               </SimpleTooltip>{" "}
               years.
             </p>
           </Tooltip.Provider>
-        </Description>
+        </div>
         <Technologies />
-      </ContentWrapper>
+      </div>
     </Section>
   );
 }

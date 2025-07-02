@@ -1,0 +1,47 @@
+.wrapper {
+  padding: 0 24px;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 32px;
+}
+
+.technologyList {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 16px;
+  max-width: 600px;
+}
+
+.technologyChip {
+  border: none;
+  background-color: var(--color-tertiary);
+  color: var(--color-text);
+  cursor: pointer;
+  border-radius: 1000px;
+  padding: 4px 12px;
+  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
+  -webkit-tap-highlight-color: transparent;
+  -webkit-touch-callout: none;
+  -webkit-user-select: none;
+  -khtml-user-select: none;
+  -moz-user-select: none;
+  -ms-user-select: none;
+  user-select: none;
+}
+
+.technologyChip[data-state="active"] {
+  background-color: var(--color-primary);
+  color: var(--color-text-dark);
+}
+
+.technologyDescription {
+  font-size: 1.25rem;
+  max-width: 50ch;
+}
+
+.emphasis {
+  font-weight: 500;
+}

@@ -1,57 +1,15 @@
 import * as Tabs from "@radix-ui/react-tabs";
-import styled from "styled-components";
 
-import TextLink from "../TextLink";
+import TextLink from "@/components/TextLink";
+
+import styles from "./Technologies.module.css";
 
 type Technology = { name: string; description: React.ReactNode };
+type EmphasisProps = { children: React.ReactNode };
 
-const Wrapper = styled(Tabs.Root)`
-  padding: 0 24px;
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 32px;
-`;
-
-const TechnologyList = styled(Tabs.List)`
-  display: flex;
-  flex-direction: row;
-  flex-wrap: wrap;
-  justify-content: center;
-  gap: 16px;
-  max-width: 600px;
-`;
-
-const TechnologyChip = styled(Tabs.Trigger)`
-  border: none;
-  background-color: var(--color-tertiary);
-  color: var(--color-text);
-  cursor: pointer;
-  border-radius: 1000px;
-  padding: 4px 12px;
-  transition: background-color 250ms ease-in-out, color 250ms ease-in-out;
-  -webkit-tap-highlight-color: transparent;
-  -webkit-touch-callout: none;
-  -webkit-user-select: none;
-  -khtml-user-select: none;
-  -moz-user-select: none;
-  -ms-user-select: none;
-  user-select: none;
-
-  &[data-state="active"] {
-    background-color: var(--color-primary);
-    color: var(--color-text-dark);
-  }
-`;
-
-const TechnologyDescription = styled(Tabs.Content)`
-  font-size: 1.25rem;
-  max-width: 50ch;
-`;
-
-const Emphasis = styled.strong`
-  font-weight: 500;
-`;
+function Emphasis({ children }: EmphasisProps) {
+  return <strong className={styles.emphasis}>{children}</strong>;
+}
 
 const technologies: Technology[] = [
   {
@@ -124,7 +82,7 @@ const technologies: Technology[] = [
         I&apos;ve learned <Emphasis>JavaScript</Emphasis> and{" "}
         <Emphasis>TypeScript</Emphasis> a long time ago, but I&apos;ve never
         actually used vanilla JS, and I cannot really say that I know the actual
-        language all that well. The same can be said about TypeScript - I just
+        language all that well. The same can be said about TypeScript — I just
         know the basics of it.
       </>
     ),
@@ -204,19 +162,27 @@ const technologies: Technology[] = [
 
 export default function Technologies() {
   return (
-    <Wrapper defaultValue={technologies[0].name}>
-      <TechnologyList aria-label="Technologies">
+    <Tabs.Root defaultValue={technologies[0].name} className={styles.wrapper}>
+      <Tabs.List className={styles.technologyList} aria-label="Technologies">
         {technologies.map(({ name }) => (
-          <TechnologyChip key={name} value={name}>
+          <Tabs.Trigger
+            key={name}
+            value={name}
+            className={styles.technologyChip}
+          >
             {name}
-          </TechnologyChip>
+          </Tabs.Trigger>
         ))}
-      </TechnologyList>
+      </Tabs.List>
       {technologies.map(({ name, description }) => (
-        <TechnologyDescription key={name} value={name}>
+        <Tabs.Content
+          key={name}
+          value={name}
+          className={styles.technologyDescription}
+        >
           <p>{description}</p>
-        </TechnologyDescription>
+        </Tabs.Content>
       ))}
-    </Wrapper>
+    </Tabs.Root>
   );
 }

@@ -1,7 +1,6 @@
 import type { Metadata } from "next";
 import { Raleway } from "next/font/google";
 
-import StyledComponentsRegistry from "./lib/registry";
 import Favicons from "@/components/Favicons";
 import ThemeInitializer from "@/components/ThemeInitializer";
 import ThemeProvider from "@/components/ThemeProvider";
@@ -34,9 +33,7 @@ export default function RootLayout({
 
       <body className={raleway.className}>
         <ThemeInitializer />
-        <StyledComponentsRegistry>
-          <ThemeProvider>{children}</ThemeProvider>
-        </StyledComponentsRegistry>
+        <ThemeProvider>{children}</ThemeProvider>
       </body>
     </html>
   );

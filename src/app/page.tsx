@@ -1,7 +1,6 @@
 "use client";
 
 import { useRef } from "react";
-import styled from "styled-components";
 
 import AboutMe from "@/components/AboutMe";
 import BlogPreview from "@/components/BlogPreview";
@@ -10,18 +9,7 @@ import Landing from "@/components/Landing";
 import NavMenu from "@/components/NavMenu";
 import Projects from "@/components/Projects";
 
-const MainContentWrapper = styled.div`
-  position: relative;
-  min-height: 100%;
-  color: var(--color-text);
-  background-color: var(--color-background);
-`;
-
-const MainContent = styled.main`
-  display: flex;
-  flex-direction: column;
-  gap: 64px;
-`;
+import styles from "./page.module.css";
 
 export default function Home() {
   const scrollRef = useRef<HTMLDivElement>(null);
@@ -29,15 +17,15 @@ export default function Home() {
   return (
     <>
       <Landing scrollRef={scrollRef} />
-      <MainContentWrapper ref={scrollRef}>
+      <div ref={scrollRef} className={styles.mainContentWrapper}>
         <NavMenu />
-        <MainContent>
+        <main className={styles.mainContent}>
           <AboutMe />
           <Projects />
           <BlogPreview />
-        </MainContent>
+        </main>
         <Footer />
-      </MainContentWrapper>
+      </div>
     </>
   );
 }

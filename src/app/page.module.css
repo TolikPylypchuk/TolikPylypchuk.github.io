@@ -1,0 +1,12 @@
+.mainContentWrapper {
+  position: relative;
+  min-height: 100%;
+  color: var(--color-text);
+  background-color: var(--color-background);
+}
+
+.mainContent {
+  display: flex;
+  flex-direction: column;
+  gap: 64px;
+}

@@ -1,0 +1,59 @@
+.intro {
+  font-size: 1.5rem;
+  margin: 32px 80px;
+}
+
+.wrapper {
+  margin: 0 40px;
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(20rem, 1fr));
+  gap: 32px;
+  margin-bottom: 64px;
+}
+
+.projectCard {
+  border: var(--color-tertiary) 1px solid;
+  box-shadow: 8px 12px 0px 0px var(--color-secondary-shadow);
+  padding: 16px 20px;
+  display: flex;
+  flex-direction: column;
+  gap: 16px;
+}
+
+.cardHeader {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: baseline;
+  gap: 16px;
+}
+
+.cardImageAndTitle {
+  display: flex;
+  flex-direction: row;
+  gap: 16px;
+}
+
+.cardTitle {
+  font-size: 1.5rem;
+  font-weight: 400;
+}
+
+.cardStatus {
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  gap: 8px;
+}
+
+.cardBody {
+  font-size: 1.25rem;
+  font-weight: 400;
+}
+
+/* Narrow width */
+@media screen and (max-width: 50rem) {
+  .intro {
+    margin: 32px 40px;
+  }
+}

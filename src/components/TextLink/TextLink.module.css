@@ -1,0 +1,17 @@
+.link {
+  color: inherit;
+  text-decoration: none;
+  background-image: linear-gradient(
+    0deg,
+    var(--color-link-highlight) 0%,
+    var(--color-link-highlight) 100%
+  );
+  background-repeat: no-repeat;
+  background-size: 100% 0.2em;
+  background-position: 0 90%;
+  transition: background-size 0.25s ease-in;
+}
+
+.link:hover {
+  background-size: 100% 90%;
+}

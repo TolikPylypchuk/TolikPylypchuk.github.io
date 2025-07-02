@@ -1,0 +1,13 @@
+.wrapper {
+  margin-block-start: 64px;
+}
+
+.separator {
+  border: none;
+  height: 1px;
+  background-color: var(--color-tertiary);
+}
+
+.copyrightText {
+  padding: 16px;
+}

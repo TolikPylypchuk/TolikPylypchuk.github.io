@@ -7,12 +7,14 @@ import {
   LinkedInLogoIcon,
 } from "@radix-ui/react-icons";
 import { IconProps } from "@radix-ui/react-icons/dist/types";
-import styled from "styled-components";
+import clsx from "clsx";
 
 import IconLink from "@/components/IconLink";
 import TextLink from "@/components/TextLink";
 import ThemeToggle from "@/components/ThemeToggle";
 import { href, pageAnchors, PageAnchorValue } from "@/utils/pageAnchors";
+
+import styles from "./NavMenu.module.css";
 
 type TextLinkData = {
   text: React.ReactNode;
@@ -26,84 +28,6 @@ type IconLinkData = {
   href: string;
   label: string;
 };
-
-const Nav = styled.nav`
-  position: sticky;
-  top: 0;
-  left: 0;
-  height: var(--nav-menu-height);
-  display: flex;
-  flex-direction: row;
-  justify-content: space-between;
-  align-items: center;
-  padding: 8px 20px;
-  background-color: var(--color-background);
-  font-size: 2rem;
-  font-weight: 200;
-`;
-
-const NavLinksBase = styled.ol`
-  display: flex;
-  flex-direction: row;
-  justify-content: flex-start;
-  align-items: center;
-  list-style: none;
-  padding: 0;
-`;
-
-const NavLinks = styled(NavLinksBase)`
-  gap: 24px;
-
-  @media screen and (max-width: 45rem) {
-    display: none;
-  }
-`;
-
-const NavLinkIcons = styled(NavLinksBase)`
-  gap: 12px;
-`;
-
-const NavMoreButton = styled.button`
-  --size: 48px;
-
-  border: none;
-  cursor: pointer;
-
-  display: none;
-
-  @media screen and (max-width: 45rem) {
-    display: grid;
-  }
-
-  place-content: center;
-  width: var(--size);
-  height: var(--size);
-  padding: calc(var(--size) / 4);
-  border-radius: calc(var(--size) / 2);
-
-  color: var(--color-text);
-  background-color: var(--color-button-highlight-inactive-secondary);
-  transition: var(--transition-button-highligt);
-
-  &:hover {
-    background-color: var(--color-button-highlight-active-secondary);
-  }
-`;
-
-const NavPopoverContent = styled(Popover.Content)`
-  width: 100vw;
-  color: var(--color-text);
-  background-color: var(--color-background);
-  font-size: 1.5rem;
-  font-weight: 200;
-  display: flex;
-  flex-direction: column;
-  align-items: flex-start;
-  gap: 16px;
-  padding: 16px;
-  box-shadow: 0px 10px 38px -10px hsl(206 22% 7% / 35%),
-    0px 10px 20px -15px hsl(206 22% 7% / 35%);
-`;
 
 const textLinks: TextLinkData[] = [
   {
@@ -141,8 +65,8 @@ export default function NavMenu() {
   const [isPopoverOpen, setIsPopoverOpen] = useState(false);
 
   return (
-    <Nav>
-      <NavLinks>
+    <nav className={styles.nav}>
+      <ol className={clsx(styles.navLinks, styles.navLinksText)}>
         {textLinks.map((link) => (
           <li key={link.href}>
             <TextLink href={href(link.href)} newTab={false}>
@@ -150,7 +74,7 @@ export default function NavMenu() {
             </TextLink>
           </li>
         ))}
-      </NavLinks>
+      </ol>
 
       <Popover.Root
         modal={false}
@@ -158,12 +82,15 @@ export default function NavMenu() {
         onOpenChange={setIsPopoverOpen}
       >
         <Popover.Trigger asChild>
-          <NavMoreButton aria-label="Open navigation menu">
+          <button
+            className={styles.navMoreButton}
+            aria-label="Open navigation menu"
+          >
             <HamburgerMenuIcon />
-          </NavMoreButton>
+          </button>
         </Popover.Trigger>
         <Popover.Portal>
-          <NavPopoverContent>
+          <Popover.Content className={styles.navPopoverContent}>
             {textLinks.map((link) => (
               <TextLink
                 key={link.href}
@@ -174,11 +101,11 @@ export default function NavMenu() {
                 {link.text}
               </TextLink>
             ))}
-          </NavPopoverContent>
+          </Popover.Content>
         </Popover.Portal>
       </Popover.Root>
 
-      <NavLinkIcons>
+      <ol className={clsx(styles.navLinks, styles.navLinksIcons)}>
         {iconLinks.map((link) => (
           <li key={link.href}>
             <IconLink
@@ -192,7 +119,7 @@ export default function NavMenu() {
           </li>
         ))}
         <ThemeToggle size={48} />
-      </NavLinkIcons>
-    </Nav>
+      </ol>
+    </nav>
   );
 }
