@@ -1,3 +1,4 @@
+import { Route } from "next";
 import Image from "next/image";
 import {
   CheckCircledIcon,
@@ -95,7 +96,7 @@ export default function Projects() {
                 <p className={styles.cardTitle}>{project.name}</p>
               </div>
               <IconLink
-                href={project.url}
+                href={project.url as Route}
                 target="_blank"
                 label={`Go to ${project.name}`}
                 size="48px"

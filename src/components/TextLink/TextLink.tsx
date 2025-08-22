@@ -2,18 +2,18 @@ import Link, { LinkProps } from "next/link";
 
 import styles from "./TextLink.module.css";
 
-type TextLinkProps = LinkProps & {
+type TextLinkProps<T> = LinkProps<T> & {
   children: React.ReactNode;
   newTab?: boolean;
   onClick?: React.MouseEventHandler<HTMLAnchorElement>;
 };
 
-export default function TextLink({
+export default function TextLink<T extends string>({
   href,
   children,
   newTab = true,
   onClick,
-}: TextLinkProps) {
+}: TextLinkProps<T>) {
   return (
     <Link
       href={href}

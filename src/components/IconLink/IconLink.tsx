@@ -14,15 +14,15 @@ type IconLinkProps = {
   children: React.ReactNode;
 };
 
-function IconLink({
+function IconLink<T extends string>({
   label,
   children,
   addTooltip = true,
   size,
   ...rest
 }: IconLinkProps &
-  LinkProps &
-  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps>) {
+  LinkProps<T> &
+  Omit<React.AnchorHTMLAttributes<HTMLAnchorElement>, keyof LinkProps<T>>) {
   const linkStyle = { "--size": size } as React.CSSProperties;
   return addTooltip === true ? (
     <Tooltip.Provider>

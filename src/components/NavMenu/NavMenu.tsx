@@ -1,5 +1,7 @@
 import { useState } from "react";
 
+import { Route } from "next";
+
 import * as Popover from "@radix-ui/react-popover";
 import {
   GitHubLogoIcon,
@@ -25,8 +27,8 @@ type IconLinkData = {
   icon: React.ForwardRefExoticComponent<
     IconProps & React.RefAttributes<SVGSVGElement>
   >;
-  href: string;
   label: string;
+  href: Route<string>;
 };
 
 const textLinks: TextLinkData[] = [
@@ -52,12 +54,12 @@ const iconLinks: IconLinkData[] = [
   {
     icon: GitHubLogoIcon,
     label: "GitHub",
-    href: "https://github.com/TolikPylypchuk",
+    href: "https://github.com/TolikPylypchuk" as Route<string>,
   },
   {
     icon: LinkedInLogoIcon,
     label: "LinkedIn",
-    href: "https://www.linkedin.com/in/anatoliy-pylypchuk",
+    href: "https://www.linkedin.com/in/anatoliy-pylypchuk" as Route<string>,
   },
 ];
 
