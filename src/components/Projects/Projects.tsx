@@ -48,7 +48,7 @@ const projects: Project[] = [
   },
   {
     name: "Cineaste",
-    isActive: false,
+    isActive: true,
     description:
       "An app which keeps track of the movies and TV series you have watched or would like to watch",
     url: "https://cineaste.tolik.io",
